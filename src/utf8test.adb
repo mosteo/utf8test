@@ -63,7 +63,7 @@ procedure Utf8test is
    Lat1  : constant String := "áéíóú"; --  This is not unicode but Latin1, even
                                        --  if the source file is in utf8!
    Utf8_From_Latin1 : constant String := Enc8.Encode (String'("áéíóú"));
-   Utf8_From_Utf32  : constant String := Enc32.Encode (Wide_Wide_String'("🌈"));
+   Utf8_From_Utf32  : constant String := Enc32.Encode (Wide_Wide_String'("€"));
 
 begin
    Print_Bytes (Ascii, Conv.To_Wide_Wide_String (Ascii),   "ascii", Latin1);
