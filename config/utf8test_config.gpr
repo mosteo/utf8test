@@ -11,8 +11,7 @@ abstract project Utf8test_Config is
    Ada_Compiler_Switches := External_As_List ("ADAFLAGS", " ");
    Ada_Compiler_Switches := Ada_Compiler_Switches &
           (
-            "-gnatW8" -- UTF-8 encoding for wide characters
-           ,"-Og" -- Optimize for debug
+            "-Og" -- Optimize for debug
            ,"-ffunction-sections" -- Separate ELF section for each function
            ,"-fdata-sections" -- Separate ELF section for each variable
            ,"-g" -- Generate debug info
@@ -42,6 +41,7 @@ abstract project Utf8test_Config is
            ,"-gnatyt" -- Check token spacing
            ,"-gnatyu" -- Check unnecessary blank lines
            ,"-gnatyx" -- Check extra parentheses
+           ,"-gnatW8" -- UTF-8 encoding for wide characters
           );
 
    type Build_Profile_Kind is ("release", "validation", "development");

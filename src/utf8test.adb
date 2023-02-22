@@ -1,4 +1,5 @@
 with Ada.Characters.Conversions;
+with Ada.Command_Line; use Ada.Command_Line;
 with Ada.Integer_Text_IO;
 with Ada.Streams; use Ada.Streams;
 with Ada.Strings.UTF_Encoding.Wide_Wide_Strings;
@@ -72,4 +73,12 @@ begin
                 "lat1->utf8", Utf8);
    Print_Bytes (Utf8_From_Utf32, Enc32.Decode (Utf8_From_Utf32),
                 "utf32->utf8", Utf8);
+
+   for I in 1 .. Argument_Count loop
+      Print_Bytes (Argument (I),
+                   Enc32.Decode (Argument (I)),
+                   --  Presuming Ada.Arguments strings are the raw input
+                   "Arg" & I'Image,
+                   Utf8);
+   end loop;
 end Utf8test;
